@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="ftco-counter img bg-light" id="section-counter">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 justify-content-center counter-wrap ftco-animate">
+					<div class="block-18 d-flex">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="flaticon-suitcase"></span>
+						</div>
+						<div class="text">
+							<strong class="number" data-number="{{profile.project_completed}}">0</strong>
+							<span>Project Complete</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 justify-content-center counter-wrap ftco-animate">
+					<div class="block-18 d-flex">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="flaticon-loyalty"></span>
+						</div>
+						<div class="text">
+							<strong class="number" data-number="{{profile.happy_client}}">0</strong>
+							<span>Happy Clients</span>
+						</div>
+					</div>
+				</div>
+<!--				<div class="col-md-3 justify-content-center counter-wrap ftco-animate">-->
+<!--					<div class="block-18 d-flex">-->
+<!--						<div class="icon d-flex justify-content-center align-items-center">-->
+<!--							<span class="flaticon-coffee"></span>-->
+<!--						</div>-->
+<!--						<div class="text">-->
+<!--							<strong class="number" data-number="478">0</strong>-->
+<!--							<span>Cups of coffee</span>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+				<div class="col-md-3 justify-content-center counter-wrap ftco-animate">
+					<div class="block-18 d-flex">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="flaticon-calendar"></span>
+						</div>
+						<div class="text">
+							<strong class="number" data-number="{{profile.years_of_experience}}">0 </strong>
+							<span>Years of experience</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-about ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+		<div class="container">
+			<div class="row d-flex no-gutters">
+				<div class="col-md-6 col-lg-5 d-flex">
+					<div class="img-about img d-flex align-items-stretch">
+						<div class="overlay"></div>
+						<div class="img d-flex align-self-stretch align-items-center" style="background-image:url({% static 'images/about-1.jpg' %});">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-7 pl-md-4 pl-lg-5 py-5">
+					<div class="py-md-5">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section ftco-animate">
+								<span class="subheading">My Intro</span>
+								<h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">About Me</h2>
+								<p>{{profile.description}}</p>
+
+								<ul class="about-info mt-4 px-md-0 px-2">
+									<li class="d-flex"><span>Name:</span> <span>{{profile.full_name}}</span></li>
+									<li class="d-flex"><span>Date of birth:</span> <span>January 01, 1952</span></li>
+									<li class="d-flex"><span>Address:</span> <span>{{profile.address}}</span></li>
+									<li class="d-flex"><span>Email:</span> <span>{{profile.email}}</span></li>
+									<li class="d-flex"><span>Phone: </span> <span>{{profile.phone_number}}</span></li>
+								</ul>
+							</div>
+							<div class="col-md-12">
+								<div class="my-interest d-lg-flex w-100">
+									{% for hobby in hobbies %}
+									<div class="interest-wrap d-flex align-items-center">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="flaticon-suitcases"></span>
+										</div>
+										<div class="text">{{hobby}}</div>
+									</div>
+									{% endfor %}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section bg-light" id="skills-section">
+		<div class="container">
+			<divi class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<span class="subheading">Skills</span>
+					<h2 class="mb-4">My Skills</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+				</div>
+			</div>
+
+			<div class="row progress-circle mb-5">
+{% for skill in skills %}
+				<div class="col-lg-4 mb-4">
+
+					<div class="bg-white rounded-lg shadow p-4">
+
+						<h2 class="h5 font-weight-bold text-center mb-4">{{skill.name}}</h2>
+
+						<!-- Progress bar 1 -->
+						<div class="progress mx-auto" data-value='{{skill.progress_level}}'>
+							<span class="progress-left">
+								<span class="progress-bar border-primary"></span>
+							</span>
+							<span class="progress-right">
+								<span class="progress-bar border-primary"></span>
+							</span>
+							<div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+								<div class="h2 font-weight-bold">{{skill.progress_level}}<sup class="small">%</sup></div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+{% endfor %}
+			</div>
+
+		</div>
+	</section>
+
+
+	<section class="ftco-hireme">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-md-8 col-lg-8 d-flex align-items-center">
+					<div class="w-100 py-4">
+						<h2>Have a project on your mind.</h2>
+						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly.</p>
+						<p class="mb-0"><a href="#contact-section" class="btn btn-white py-3 px-4">Contact me</a></p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-4 d-flex align-items-end">
+					<img src="{% static 'images/author.png' %}" class="img-fluid" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-project" id="projects-section">
+		<div class="container-fluid px-md-4">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<span class="subheading">Accomplishments</span>
+					<h2 class="mb-4">Our Projects</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+				</div>
+			</div>
+			<div class="row">
+
+
+				{% for projects in project %}
+				<div class="col-md-3">
+					<div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({{projects.image.url}});">
+						<div class="overlay"></div>
+						<div class="text text-center p-4">
+							<h3><a href="{{projects.url_link}}">{{projects.name}}</a></h3>
+							<span>{{projects.name}}</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section testimony-section bg-primary">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section heading-section-white text-center ftco-animate">
+					<span class="subheading">Testimonies</span>
+					<h2 class="mb-4">What client says about?</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel">
+						{% for testimonies in testimony %}
+						<div class="item">
+
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<span class="fa fa-quote-left"></span>
+									<p class="mb-4 pl-5">{{testimonies.content| truncatechars:45}}</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">{{testimonies.full_name}}</p>
+											<span class="position">{{testimonies.job}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
